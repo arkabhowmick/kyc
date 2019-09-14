@@ -295,6 +295,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs/Rx';
+// import { map } from 'rxjs/operators';
+// import 'rxjs/add/operator/map';
 var MainViewComponent = /** @class */ (function () {
     function MainViewComponent(papa, http) {
         this.papa = papa;
@@ -322,11 +326,19 @@ var MainViewComponent = /** @class */ (function () {
     MainViewComponent.prototype.next = function () {
         this.currentIndex = this.currentIndex + 1;
         this.currentIndex = this.currentIndex >= this.csvData.length ? this.csvData.length - 1 : this.currentIndex;
+        this.clearImages();
         this.getImages();
+    };
+    MainViewComponent.prototype.clearImages = function () {
+        this.image['image1'] = '';
+        this.image['image2'] = '';
+        this.image['image3'] = '';
+        this.image['image4'] = '';
     };
     MainViewComponent.prototype.previous = function () {
         this.currentIndex = this.currentIndex - 1;
         this.currentIndex = this.currentIndex <= 1 ? 1 : this.currentIndex;
+        this.clearImages();
         this.getImages();
     };
     MainViewComponent.prototype.pass = function () {
