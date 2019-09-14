@@ -86,16 +86,14 @@ export class MainViewComponent implements OnInit {
 
   async getImages() {
     console.log('Getting');
-    let response = await Promise.all([
-      this.getImage(this.csvData[this.currentIndex][this.dataModel['image1']]),
-      this.getImage(this.csvData[this.currentIndex][this.dataModel['image2']]),
-      this.getImage(this.csvData[this.currentIndex][this.dataModel['image3']]),
-      this.getImage(this.csvData[this.currentIndex][this.dataModel['image4']])
-    ]);
-    this.image['image1'] = response[0];
-    this.image['image2'] = response[1];
-    this.image['image3'] = response[2];
-    this.image['image4'] = response[3];
+    console.log('Datamodel : ', this.dataModel);
+    this.image['image1'] = await this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image1'])-1]);
+    this.image['image2'] = await this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image2'])-1]);
+    this.image['image3'] = await this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image3'])-1]);
+    this.image['image4'] = await this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image4'])-1]);
+
+    console.log('Image : ', this.image);
+
   }
 
   getImage(url) {

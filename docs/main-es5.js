@@ -52,7 +52,7 @@ module.exports = "<div class=\"box\">\n    <div class=\"box-header\">\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col col-6\">\n        <img class=\"view-image\" [src]=\"image.image1\" alt=\"\">\n    </div>\n    <div class=\"col col-6\">\n        <img class=\"view-image\" [src]=\"image.image2\" alt=\"\">\n    </div>\n</div>\n<div class=\"row\" style=\"margin-top : 20px;\">\n    <div class=\"col col-6\">\n        <img class=\"view-image\" [src]=\"image.image3\" alt=\"\">\n    </div>\n    <div class=\"col col-6\">\n        <img class=\"view-image\" [src]=\"image.image4\" alt=\"\">\n    </div>\n</div>\n<div class=\"row\" style=\"margin-top: 20px;\">\n    <div class=\"col col-12\">\n        <table class=\"table table-bordered\">\n            <thead>\n                <th *ngFor=\"let col of csvData[0]\">{{col}}</th>\n            </thead>\n            <tbody>\n                <tr>\n                    <td *ngFor=\"let col of csvData[currentIndex]\">{{col}}</td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<div style=\"margin-top:20px;\" class=\"row\">\n    <div class=\"col col-3\" style=\"text-align : left;\">\n        <button class=\"btn btn-primary\" (click)=\"previous()\" style=\"margin-right : 10px;\">Previous</button>\n    </div>\n    <div class=\"col col-6\" style=\"text-align:center;\">\n        <button class=\"btn btn-success\" (click)=\"pass()\">Pass</button>\n        <button class=\"btn btn-danger\" (click)=\"fail()\" style=\"margin-left:10px;\">Fail</button>\n    </div>\n    <div class=\"col col-3\" style=\"text-align: right;\">\n        <button class=\"btn btn-primary\" (click)=\"next()\">Next</button>\n    </div> \n\n</div>\n\n<div>\n    <button class=\"btn btn-secondary\" (click)=\"save()\">Save</button>\n</div>\n"
+module.exports = "<div class=\"row\">\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image1\" [src]=\"image.image1\" alt=\"\">\n    </div>\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image2\" [src]=\"image.image2\" alt=\"\">\n    </div>\n</div>\n<div class=\"row\" style=\"margin-top : 20px;\">\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image3\" [src]=\"image.image3\" alt=\"\">\n    </div>\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image4\" [src]=\"image.image4\" alt=\"\">\n    </div>\n</div>\n<div class=\"row\" style=\"margin-top: 20px;\">\n    <div class=\"col col-12\">\n        <table class=\"table table-bordered\">\n            <thead>\n                <th *ngFor=\"let col of csvData[0]\">{{col}}</th>\n            </thead>\n            <tbody>\n                <tr>\n                    <td *ngFor=\"let col of csvData[currentIndex]\">{{col}}</td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<div style=\"margin-top:20px;\" class=\"row\">\n    <div class=\"col col-3\" style=\"text-align : left;\">\n        <button class=\"btn btn-primary\" (click)=\"previous()\" style=\"margin-right : 10px;\">Previous</button>\n    </div>\n    <div class=\"col col-6\" style=\"text-align:center;\">\n        <button class=\"btn btn-success\" (click)=\"pass()\">Pass</button>\n        <button class=\"btn btn-danger\" (click)=\"fail()\" style=\"margin-left:10px;\">Fail</button>\n    </div>\n    <div class=\"col col-3\" style=\"text-align: right;\">\n        <button class=\"btn btn-primary\" (click)=\"next()\">Next</button>\n    </div> \n\n</div>\n\n<div>\n    <button class=\"btn btn-secondary\" (click)=\"save()\">Save</button>\n</div>\n"
 
 /***/ }),
 
@@ -362,23 +362,33 @@ var MainViewComponent = /** @class */ (function () {
     };
     MainViewComponent.prototype.getImages = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var response;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
+            var _a, _b, _c, _d, _e, _f, _g, _h;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_j) {
+                switch (_j.label) {
                     case 0:
                         console.log('Getting');
-                        return [4 /*yield*/, Promise.all([
-                                this.getImage(this.csvData[this.currentIndex][this.dataModel['image1']]),
-                                this.getImage(this.csvData[this.currentIndex][this.dataModel['image2']]),
-                                this.getImage(this.csvData[this.currentIndex][this.dataModel['image3']]),
-                                this.getImage(this.csvData[this.currentIndex][this.dataModel['image4']])
-                            ])];
+                        console.log('Datamodel : ', this.dataModel);
+                        _a = this.image;
+                        _b = 'image1';
+                        return [4 /*yield*/, this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image1']) - 1])];
                     case 1:
-                        response = _a.sent();
-                        this.image['image1'] = response[0];
-                        this.image['image2'] = response[1];
-                        this.image['image3'] = response[2];
-                        this.image['image4'] = response[3];
+                        _a[_b] = _j.sent();
+                        _c = this.image;
+                        _d = 'image2';
+                        return [4 /*yield*/, this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image2']) - 1])];
+                    case 2:
+                        _c[_d] = _j.sent();
+                        _e = this.image;
+                        _f = 'image3';
+                        return [4 /*yield*/, this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image3']) - 1])];
+                    case 3:
+                        _e[_f] = _j.sent();
+                        _g = this.image;
+                        _h = 'image4';
+                        return [4 /*yield*/, this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image4']) - 1])];
+                    case 4:
+                        _g[_h] = _j.sent();
+                        console.log('Image : ', this.image);
                         return [2 /*return*/];
                 }
             });
