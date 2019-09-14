@@ -5,8 +5,6 @@ import { HttpClient } from '@angular/common/http';
 // import { Observable } from 'rxjs/Rx';
 // import { map } from 'rxjs/operators';
 // import 'rxjs/add/operator/map';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main-view',
@@ -43,12 +41,21 @@ export class MainViewComponent implements OnInit {
   next() {
     this.currentIndex = this.currentIndex+1;
     this.currentIndex = this.currentIndex >= this.csvData.length ? this.csvData.length - 1 : this.currentIndex;
+    this.clearImages();
     this.getImages();
+  }
+
+  clearImages() {
+    this.image['image1'] = '';
+    this.image['image2'] = '';
+    this.image['image3'] = '';
+    this.image['image4'] = '';
   }
   
   previous() {
     this.currentIndex = this.currentIndex-1;
     this.currentIndex = this.currentIndex <= 1 ? 1 : this.currentIndex;
+    this.clearImages();
     this.getImages();
   }
 
