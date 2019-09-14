@@ -1,0 +1,49 @@
+<div class="box">
+    <div class="box-header">
+        <h5>Upload File For KYC</h5>
+    </div>
+    
+    <form name="form">
+        <div class="custom-file">
+            <input name="csvfile" type="file" class="custom-file-input" id="customFile" (change)="uploadFile($event.target.files)">
+            <label class="custom-file-label" for="customFile">{{file ? filename : 'Choose File'}}</label>
+        </div>
+    </form>
+
+    <div *ngIf="file" class="box-buttons">
+        <form name="details"> 
+            <div class="form-group">
+                <label for="image1">Image 1 column number</label>
+                <input type="number" name="image1" class="form-control" [(ngModel)]="dataModel.image1" placeholder="Image 1 Column">
+            </div>
+            <div class="form-group">
+                <label for="image1">Image 2 column number</label>
+                <input type="number" name="image2" class="form-control" [(ngModel)]="dataModel.image2" placeholder="Image 2 Column">
+            </div>
+            <div class="form-group">
+                <label for="image1">Image 3 column number</label>
+                <input type="number" name="image3" class="form-control" [(ngModel)]="dataModel.image3" placeholder="Image 3 Column">
+            </div>
+            <div class="form-group">
+                <label for="image1">Image 4 column number</label>
+                <input type="number" name="image4" class="form-control" [(ngModel)]="dataModel.image4" placeholder="Image 4 Column">
+            </div>
+            <div class="form-group">
+                <label for="status">Status column number</label>
+                <input type="number" name="status" class="form-control" [(ngModel)]="dataModel.status" placeholder="Status Column">
+            </div>
+            <div class="form-group">
+                <label for="image1">Pass Value</label>
+                <input type="text" name="pass" class="form-control" [(ngModel)]="dataModel.pass" placeholder="Pass Value">
+            </div>
+            <div class="form-group">
+                <label for="image1">Fail Value</label>
+                <input type="text" name="fail" class="form-control" [(ngModel)]="dataModel.fail" placeholder="Fail Value">
+            </div>
+        </form>
+        <div style="text-align: center;">
+            <button class="btn btn-success" (click)="proceed()">Proceed</button>
+            <button class="btn btn-danger" (click)="removeFile()">Remove</button>
+        </div>
+    </div>
+</div>

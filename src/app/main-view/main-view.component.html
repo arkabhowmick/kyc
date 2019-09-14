@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col col-6">
+        <img class="view-image" [src]="image.image1" alt="">
+    </div>
+    <div class="col col-6">
+        <img class="view-image" [src]="image.image2" alt="">
+    </div>
+</div>
+<div class="row" style="margin-top : 20px;">
+    <div class="col col-6">
+        <img class="view-image" [src]="image.image3" alt="">
+    </div>
+    <div class="col col-6">
+        <img class="view-image" [src]="image.image4" alt="">
+    </div>
+</div>
+<div class="row" style="margin-top: 20px;">
+    <div class="col col-12">
+        <table class="table table-bordered">
+            <thead>
+                <th *ngFor="let col of csvData[0]">{{col}}</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td *ngFor="let col of csvData[currentIndex]">{{col}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="margin-top:20px;" class="row">
+    <div class="col col-3" style="text-align : left;">
+        <button class="btn btn-primary" (click)="previous()" style="margin-right : 10px;">Previous</button>
+    </div>
+    <div class="col col-6" style="text-align:center;">
+        <button class="btn btn-success" (click)="pass()">Pass</button>
+        <button class="btn btn-danger" (click)="fail()" style="margin-left:10px;">Fail</button>
+    </div>
+    <div class="col col-3" style="text-align: right;">
+        <button class="btn btn-primary" (click)="next()">Next</button>
+    </div> 
+
+</div>
+
+<div>
+    <button class="btn btn-secondary" (click)="save()">Save</button>
+</div>

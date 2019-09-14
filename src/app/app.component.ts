@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kyc';
+  file : Object = null;
+  constructor() {
+
+  }
+
+  uploadFile(file) {
+    this.file = file;
+    // console.log('File : ', this.file);
+  }
+
 }

@@ -1,0 +1,15 @@
+.box {
+    width : 500px;
+    margin : auto;
+    margin-top : 100px;
+    .box-header {
+        color : gray;
+        text-align: center;
+    }
+    .box-buttons {
+        margin-top : 50px;
+        button {
+            margin-right : 20px;
+        }
+    }
+}
