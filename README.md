@@ -1,27 +1,20 @@
-# Kyc
+# KYC (Know Your Customer)
+This project was built specifically to help my brother process and verify a large number of bank users with their KYC details.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+# Problem Statement
+There are a large number of records in csv file containing details of customers.
+The details were like this : 
+4 columns with links to image in public S3 bucket containing their aadhar,pan card photos,
+1 column containing their names.
+1 column to put down the status(pass, fail,custom status)
 
-## Development server
+# How to use : 
+1. Upload your file.
+2. Add the 4 images' exact column numbers,
+3. Add the column number for storing status.
+4. Add the Pass/Fail status message.
+5. Add the columns you want to display in the ui.
+6. Press proceed.
+7. Now you can verify the details of user, switch between previous/next users, etc.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Link : https://arkabhowmick.github.io/kyc/
