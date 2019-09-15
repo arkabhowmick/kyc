@@ -19,6 +19,9 @@ export class MainViewComponent implements OnInit {
   currentIndex = 1;
   dataModel = {};
   image = {};
+  gotopage = 0;
+  displayColumns = [];
+  customMessage = '';
 
   constructor(private papa: Papa, private http: HttpClient) { }
 
@@ -30,6 +33,9 @@ export class MainViewComponent implements OnInit {
       image4 : ''
     };
     this.dataModel = this.file['data'];
+    if(this.dataModel['displayColumns']) {
+      this.displayColumns = this.dataModel['displayColumns'].split(',');
+    }
     this.papa.parse(this.file['file'],{
       complete: (result) => {
         this.csvData = result.data;
@@ -41,10 +47,10 @@ export class MainViewComponent implements OnInit {
   next() {
     this.currentIndex = this.currentIndex+1;
     this.currentIndex = this.currentIndex >= this.csvData.length ? this.csvData.length - 1 : this.currentIndex;
-    this.clearImages();
     this.getImages();
+    this.customMessage = '';
   }
-
+  
   clearImages() {
     this.image['image1'] = '';
     this.image['image2'] = '';
@@ -55,16 +61,28 @@ export class MainViewComponent implements OnInit {
   previous() {
     this.currentIndex = this.currentIndex-1;
     this.currentIndex = this.currentIndex <= 1 ? 1 : this.currentIndex;
-    this.clearImages();
     this.getImages();
+    this.customMessage = '';
+  }
+
+  goTo() {
+    this.currentIndex = this.gotopage;
+    this.getImages();
+    this.customMessage = '';
   }
 
   pass() {
     this.csvData[this.currentIndex][parseInt(this.dataModel['status'])-1] = this.dataModel['pass'];
+    this.customMessage = '';
   }
 
   fail() {
     this.csvData[this.currentIndex][parseInt(this.dataModel['status'])-1] = this.dataModel['fail'];
+    this.customMessage = '';
+  }
+
+  updateStatus(value) {
+    this.csvData[this.currentIndex][parseInt(this.dataModel['status'])-1] = value;
   }
 
   save() {
@@ -85,15 +103,12 @@ export class MainViewComponent implements OnInit {
   }
 
   async getImages() {
-    console.log('Getting');
-    console.log('Datamodel : ', this.dataModel);
+    this.clearImages();
     this.image['image1'] = await this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image1'])-1]);
     this.image['image2'] = await this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image2'])-1]);
     this.image['image3'] = await this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image3'])-1]);
     this.image['image4'] = await this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image4'])-1]);
-
-    console.log('Image : ', this.image);
-
+    this.customMessage = '';
   }
 
   getImage(url) {

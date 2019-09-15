@@ -41,7 +41,7 @@ module.exports = "<div class=\"container-fluid\">\n  <app-file-upload (onProceed
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"box\">\n    <div class=\"box-header\">\n        <h5>Upload File For KYC</h5>\n    </div>\n    \n    <form name=\"form\">\n        <div class=\"custom-file\">\n            <input name=\"csvfile\" type=\"file\" class=\"custom-file-input\" id=\"customFile\" (change)=\"uploadFile($event.target.files)\">\n            <label class=\"custom-file-label\" for=\"customFile\">{{file ? filename : 'Choose File'}}</label>\n        </div>\n    </form>\n\n    <div *ngIf=\"file\" class=\"box-buttons\">\n        <form name=\"details\"> \n            <div class=\"form-group\">\n                <label for=\"image1\">Image 1 column number</label>\n                <input type=\"number\" name=\"image1\" class=\"form-control\" [(ngModel)]=\"dataModel.image1\" placeholder=\"Image 1 Column\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"image1\">Image 2 column number</label>\n                <input type=\"number\" name=\"image2\" class=\"form-control\" [(ngModel)]=\"dataModel.image2\" placeholder=\"Image 2 Column\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"image1\">Image 3 column number</label>\n                <input type=\"number\" name=\"image3\" class=\"form-control\" [(ngModel)]=\"dataModel.image3\" placeholder=\"Image 3 Column\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"image1\">Image 4 column number</label>\n                <input type=\"number\" name=\"image4\" class=\"form-control\" [(ngModel)]=\"dataModel.image4\" placeholder=\"Image 4 Column\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"status\">Status column number</label>\n                <input type=\"number\" name=\"status\" class=\"form-control\" [(ngModel)]=\"dataModel.status\" placeholder=\"Status Column\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"image1\">Pass Value</label>\n                <input type=\"text\" name=\"pass\" class=\"form-control\" [(ngModel)]=\"dataModel.pass\" placeholder=\"Pass Value\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"image1\">Fail Value</label>\n                <input type=\"text\" name=\"fail\" class=\"form-control\" [(ngModel)]=\"dataModel.fail\" placeholder=\"Fail Value\">\n            </div>\n        </form>\n        <div style=\"text-align: center;\">\n            <button class=\"btn btn-success\" (click)=\"proceed()\">Proceed</button>\n            <button class=\"btn btn-danger\" (click)=\"removeFile()\">Remove</button>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"box\">\n    <div class=\"box-header\">\n        <h5>Upload File For KYC</h5>\n    </div>\n    \n    <form name=\"form\">\n        <div class=\"custom-file\">\n            <input name=\"csvfile\" type=\"file\" class=\"custom-file-input\" id=\"customFile\" (change)=\"uploadFile($event.target.files)\">\n            <label class=\"custom-file-label\" for=\"customFile\">{{file ? filename : 'Choose File'}}</label>\n        </div>\n    </form>\n\n    <div *ngIf=\"file\" class=\"box-buttons\">\n        <form name=\"details\"> \n            <div class=\"form-group\">\n                <label for=\"image1\">Image 1 column number</label>\n                <input type=\"number\" name=\"image1\" class=\"form-control\" [(ngModel)]=\"dataModel.image1\" placeholder=\"Image 1 Column\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"image1\">Image 2 column number</label>\n                <input type=\"number\" name=\"image2\" class=\"form-control\" [(ngModel)]=\"dataModel.image2\" placeholder=\"Image 2 Column\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"image1\">Image 3 column number</label>\n                <input type=\"number\" name=\"image3\" class=\"form-control\" [(ngModel)]=\"dataModel.image3\" placeholder=\"Image 3 Column\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"image1\">Image 4 column number</label>\n                <input type=\"number\" name=\"image4\" class=\"form-control\" [(ngModel)]=\"dataModel.image4\" placeholder=\"Image 4 Column\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"status\">Status column number</label>\n                <input type=\"number\" name=\"status\" class=\"form-control\" [(ngModel)]=\"dataModel.status\" placeholder=\"Status Column\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"show\">Show Only These Columns</label>\n                <input type=\"text\" name=\"show\" class=\"form-control\" [(ngModel)]=\"dataModel.displayColumns\" placeholder=\"Show These Columns e.g. 1,6,7 or leave empty\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"image1\">Pass Value</label>\n                <input type=\"text\" name=\"pass\" class=\"form-control\" [(ngModel)]=\"dataModel.pass\" placeholder=\"Pass Value\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"image1\">Fail Value</label>\n                <input type=\"text\" name=\"fail\" class=\"form-control\" [(ngModel)]=\"dataModel.fail\" placeholder=\"Fail Value\">\n            </div>\n        </form>\n        <div style=\"text-align: center;\">\n            <button class=\"btn btn-success\" (click)=\"proceed()\">Proceed</button>\n            <button class=\"btn btn-danger\" (click)=\"removeFile()\">Remove</button>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -52,7 +52,7 @@ module.exports = "<div class=\"box\">\n    <div class=\"box-header\">\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image1\" [src]=\"image.image1\" alt=\"\">\n    </div>\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image2\" [src]=\"image.image2\" alt=\"\">\n    </div>\n</div>\n<div class=\"row\" style=\"margin-top : 20px;\">\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image3\" [src]=\"image.image3\" alt=\"\">\n    </div>\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image4\" [src]=\"image.image4\" alt=\"\">\n    </div>\n</div>\n<div class=\"row\" style=\"margin-top: 20px;\">\n    <div class=\"col col-12\">\n        <table class=\"table table-bordered\">\n            <thead>\n                <th *ngFor=\"let col of csvData[0]\">{{col}}</th>\n            </thead>\n            <tbody>\n                <tr>\n                    <td *ngFor=\"let col of csvData[currentIndex]\">{{col}}</td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<div style=\"margin-top:20px;\" class=\"row\">\n    <div class=\"col col-3\" style=\"text-align : left;\">\n        <button class=\"btn btn-primary\" (click)=\"previous()\" style=\"margin-right : 10px;\">Previous</button>\n    </div>\n    <div class=\"col col-6\" style=\"text-align:center;\">\n        <button class=\"btn btn-success\" (click)=\"pass()\">Pass</button>\n        <button class=\"btn btn-danger\" (click)=\"fail()\" style=\"margin-left:10px;\">Fail</button>\n    </div>\n    <div class=\"col col-3\" style=\"text-align: right;\">\n        <button class=\"btn btn-primary\" (click)=\"next()\">Next</button>\n    </div> \n\n</div>\n\n<div>\n    <button class=\"btn btn-secondary\" (click)=\"save()\">Save</button>\n</div>\n"
+module.exports = "<div class=\"row\" style=\"margin-top:20px;\">\n    <div class=\"col col-4\" style=\"text-align : left;\">\n        <button class=\"btn btn-primary\" (click)=\"previous()\" style=\"margin-right : 10px;\">Previous</button>\n        <input type=\"number\" name=\"gotopage\" class=\"form-control\" [(ngModel)]=\"gotopage\" style=\"width:100px;display:inline;\" placeholder=\"Go to page\">    \n        <button class=\"btn btn-success\" (click)=\"goTo()\" style=\"margin-right : 10px;\">Go To</button>\n        <button class=\"btn btn-primary\" (click)=\"next()\" style=\"margin-right : 10px;\">Next</button>\n        <button class=\"btn btn-warning\" (click)=\"getImages()\" style=\"margin-right : 10px;\">Reload Images</button>    \n    </div>\n    <div class=\"col col-4\" style=\"text-align : center;\">\n        <button class=\"btn btn-success\" (click)=\"pass()\" style=\"margin-right : 10px;\">Pass</button>\n        <button class=\"btn btn-danger\" (click)=\"fail()\" style=\"margin-right:10px;\">Fail</button>\n        <input type=\"text\" name=\"custommessage\" class=\"form-control\" [(ngModel)]=\"customMessage\" (ngModelChange)=\"updateStatus($event)\" style=\"width:200px;display:inline;\" placeholder=\"Custom Message\">    \n    </div>\n    <div class=\"col col-4\" style=\"text-align : right;\">\n        <button class=\"btn btn-secondary\" (click)=\"save()\" style=\"margin-right : 10px;\">Save</button>\n    </div>\n</div>\n\n<div class=\"row\" style=\"margin-top: 20px;\">\n    <div class=\"col col-12\">\n        <table class=\"table table-bordered\" *ngIf=\"displayColumns.length == 0\">\n            <thead>\n                <th *ngFor=\"let col of csvData[0]\">{{col}}</th>\n            </thead>\n            <tbody>\n                <tr>\n                    <td *ngFor=\"let col of csvData[currentIndex]\">{{col}}</td>\n                </tr>\n            </tbody>\n        </table>\n        <table class=\"table table-bordered\" *ngIf=\"displayColumns.length > 0\">\n            <thead>\n                <th *ngFor=\"let col of displayColumns\">{{csvData[0][col-1]}}</th>\n            </thead>\n            <tbody>\n                <tr>\n                    <td *ngFor=\"let col of displayColumns\">{{csvData[currentIndex][col-1]}}</td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<div class=\"row\" style=\"margin-top:20px;\">\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image1\" [src]=\"image.image1\" alt=\"\">\n    </div>\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image2\" [src]=\"image.image2\" alt=\"\">\n    </div>\n</div>\n<div class=\"row\" style=\"margin-top : 20px;\">\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image3\" [src]=\"image.image3\" alt=\"\">\n    </div>\n    <div class=\"col col-6\">\n        <img class=\"view-image\" *ngIf=\"image.image4\" [src]=\"image.image4\" alt=\"\">\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -229,6 +229,7 @@ var FileUploadComponent = /** @class */ (function () {
             image3: 3,
             image4: 4,
             status: 5,
+            displayColumns: '',
             pass: 1,
             fail: 0
         };
@@ -306,6 +307,9 @@ var MainViewComponent = /** @class */ (function () {
         this.currentIndex = 1;
         this.dataModel = {};
         this.image = {};
+        this.gotopage = 0;
+        this.displayColumns = [];
+        this.customMessage = '';
     }
     MainViewComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -316,6 +320,9 @@ var MainViewComponent = /** @class */ (function () {
             image4: ''
         };
         this.dataModel = this.file['data'];
+        if (this.dataModel['displayColumns']) {
+            this.displayColumns = this.dataModel['displayColumns'].split(',');
+        }
         this.papa.parse(this.file['file'], {
             complete: function (result) {
                 _this.csvData = result.data;
@@ -326,8 +333,8 @@ var MainViewComponent = /** @class */ (function () {
     MainViewComponent.prototype.next = function () {
         this.currentIndex = this.currentIndex + 1;
         this.currentIndex = this.currentIndex >= this.csvData.length ? this.csvData.length - 1 : this.currentIndex;
-        this.clearImages();
         this.getImages();
+        this.customMessage = '';
     };
     MainViewComponent.prototype.clearImages = function () {
         this.image['image1'] = '';
@@ -338,14 +345,24 @@ var MainViewComponent = /** @class */ (function () {
     MainViewComponent.prototype.previous = function () {
         this.currentIndex = this.currentIndex - 1;
         this.currentIndex = this.currentIndex <= 1 ? 1 : this.currentIndex;
-        this.clearImages();
         this.getImages();
+        this.customMessage = '';
+    };
+    MainViewComponent.prototype.goTo = function () {
+        this.currentIndex = this.gotopage;
+        this.getImages();
+        this.customMessage = '';
     };
     MainViewComponent.prototype.pass = function () {
         this.csvData[this.currentIndex][parseInt(this.dataModel['status']) - 1] = this.dataModel['pass'];
+        this.customMessage = '';
     };
     MainViewComponent.prototype.fail = function () {
         this.csvData[this.currentIndex][parseInt(this.dataModel['status']) - 1] = this.dataModel['fail'];
+        this.customMessage = '';
+    };
+    MainViewComponent.prototype.updateStatus = function (value) {
+        this.csvData[this.currentIndex][parseInt(this.dataModel['status']) - 1] = value;
     };
     MainViewComponent.prototype.save = function () {
         var newArray = [];
@@ -366,8 +383,7 @@ var MainViewComponent = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_j) {
                 switch (_j.label) {
                     case 0:
-                        console.log('Getting');
-                        console.log('Datamodel : ', this.dataModel);
+                        this.clearImages();
                         _a = this.image;
                         _b = 'image1';
                         return [4 /*yield*/, this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image1']) - 1])];
@@ -388,7 +404,7 @@ var MainViewComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.getImage(this.csvData[this.currentIndex][parseInt(this.dataModel['image4']) - 1])];
                     case 4:
                         _g[_h] = _j.sent();
-                        console.log('Image : ', this.image);
+                        this.customMessage = '';
                         return [2 /*return*/];
                 }
             });

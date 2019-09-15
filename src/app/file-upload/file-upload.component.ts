@@ -24,6 +24,7 @@ export class FileUploadComponent implements OnInit {
       image3 : 3,
       image4 : 4,
       status : 5,
+      displayColumns : '',
       pass : 1,
       fail : 0
     };

@@ -33,6 +33,10 @@
                 <input type="number" name="status" class="form-control" [(ngModel)]="dataModel.status" placeholder="Status Column">
             </div>
             <div class="form-group">
+                <label for="show">Show Only These Columns</label>
+                <input type="text" name="show" class="form-control" [(ngModel)]="dataModel.displayColumns" placeholder="Show These Columns e.g. 1,6,7 or leave empty">
+            </div>
+            <div class="form-group">
                 <label for="image1">Pass Value</label>
                 <input type="text" name="pass" class="form-control" [(ngModel)]="dataModel.pass" placeholder="Pass Value">
             </div>
