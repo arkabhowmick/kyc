@@ -16,6 +16,14 @@
     </div>
 </div>
 
+<div style="margin-top:20px;">
+    Image Links : 
+    <a *ngIf="csvData[currentIndex][this.dataModel['image1']-1]" style="margin-right : 5px;" href="{{csvData[currentIndex][this.dataModel['image1']-1]}}" target="_blank">Image 1</a>
+    <a *ngIf="csvData[currentIndex][this.dataModel['image2']-1]" style="margin-right : 5px;" href="{{csvData[currentIndex][this.dataModel['image2']-1]}}" target="_blank">Image 2</a>
+    <a *ngIf="csvData[currentIndex][this.dataModel['image3']-1]" style="margin-right : 5px;" href="{{csvData[currentIndex][this.dataModel['image3']-1]}}" target="_blank">Image 3</a>
+    <a *ngIf="csvData[currentIndex][this.dataModel['image4']-1]" style="margin-right : 5px;" href="{{csvData[currentIndex][this.dataModel['image4']-1]}}" target="_blank">Image 4</a>
+</div>
+
 <div class="row" style="margin-top: 20px;">
     <div class="col col-12">
         <table class="table table-bordered" *ngIf="displayColumns.length == 0">
